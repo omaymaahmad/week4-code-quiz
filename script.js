@@ -1,21 +1,48 @@
-/*Variables needed for the code execution
-- Questions which are going to be asked (array of objects which means you iterate over them and display): var questions = [{}, {}, {}]
-- going to need to get all of the different sections in html: var startingPage = document.getElementById("startScreen");
-- going to need a variable to reference the current index question 
-*/
+
+// Homework Code //
+
+// function beginBtn() {
+    //     var myVar = setInterval(myTimer, 1000);
+    
+    //     function myTimer() {
+        
+        //     }
+        // }
+        
+        /*Variables needed for the code execution
+        - Questions which are going to be asked (array of objects which means you iterate over them and display): var questions = [{}, {}, {}]
+        - going to need to get all of the different sections in html: var startingPage = document.getElementById("startScreen");
+        - going to need a variable to reference the current index question 
+        */
+       var questions = [{
+           question: "Whats your name?",
+           answers: ["Bob", "Bill", "bert"],
+           correct: "Bob"
+       }]
+       var currentQuestionIndex = 0; 
+       
+var beginBtn = document.getElementById("begin");
 
 
 function startQuiz(){
-    //remove the visibility of the start screen div
-    //display the questions div
+    var startScreenContent = document.getElementById("startScreen");
+    startScreenContent.style.display = "none";
     //start the timer
     //then you call another function which renders the questions onto the screen: showQuestions(); 
+showQuestions();
 }
 
 function showQuestions(){
-// use the variable at the top to find out what to display
-// need to look at how to add content to a h3 for example in the html from this script
-//when creating the buttons for the choices and appending them to the choices area in the html we can add an onclick for another function (checkAnswer)
+ var currentQuestion = document.getElementById("currentQuestion");
+ currentQuestion.textContent = questions[currentQuestionIndex].question
+
+ var answersSection = document.getElementById("answersSection"); 
+ for (var i = 0; i < questions[currentQuestionIndex].answers.length; i++){
+     var answerButton = document.createElement("button"); 
+     answerButton.textContent = questions[currentQuestionIndex].answers[i];
+     answerButton.onclick = checkAnswer();
+    answersSection.appendChild(answerButton);
+    }
 }
 
 function checkAnswer(){
@@ -30,7 +57,7 @@ function endQuiz(){
     //display score etc
 }
 
-
+beginBtn.onclick = startQuiz;
 
 
 // Bottom of the page initise the start of the code execution startQuiz();
