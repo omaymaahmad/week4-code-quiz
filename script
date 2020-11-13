@@ -1,9 +1,0 @@
-// Homework Code //
-var beginBtn = document.querySelector("begin");
-
-function beginBtn() {
-    var myVar = setInterval(myTimer, 1000);
-
-    function myTimer() {
-        
-    }

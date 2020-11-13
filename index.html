@@ -11,8 +11,9 @@
     <div class="wrapper">
       <header>
         <h1>Welcome to the Javascript Quiz</h1>
+        <h4 class="timer"></h4>
       </header>
-      <div class="card">
+      <div id="startScreen" class="card">
         <div class="card-header">
           <h2>To enter the quiz click on the button below! Good Luck</h2>
         </div>
@@ -20,6 +21,15 @@
         <div class="card-footer">
           <button id="begin" class="btn">Begin Quiz</button>
         </div>
+      </div>
+      <div class = "questions">
+        <h3 id="currentQuestion" class=""></h3>
+        <div class="answers">
+
+        </div>
+      </div>
+      <div class="highscores">
+
       </div>
     </div>
     <script src="script.js"></script>
