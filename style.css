@@ -1,0 +1,51 @@
+html,
+body,
+.wrapper {
+    height: 100%
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+    background-color: white;
+}
+
+.wrapper {
+    padding-top: 25px
+    padding-left: 30px
+    padding-right: 30px
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    padding-top: 0px;
+    color: seagreen;
+}
+
+.card {
+    background-color: antiquewhite;
+    border-radius: 5px;
+    border-width: 1px;
+    color: seagreen (206, 17%, 28%);
+    font-size: 18px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 30px 40px; 
+}
+
+.btn {
+    border: none;
+    background-color: lightskyblue (360, 91%, 36%);
+    border-radius: 25px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 16px 16px 16px 20px;
+    padding: 20px 35px;
+    text-align: center;
+    cursor: pointer;
+    align-content: center;
+  }
