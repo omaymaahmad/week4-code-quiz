@@ -11,6 +11,10 @@ body {
     background-color white;
 }
 
+
+#answers button {
+    width: 85%;
+}
 .wrapper {
     padding-top: 25px
     padding-left 30px

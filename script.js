@@ -26,9 +26,12 @@ var questions = [
   },
 ];
 
+
 var currentQuestionIndex = 0;
 var beginBtn = document.getElementById("begin");
 var countDown;
+var timeRemaining = 30;
+ 
 
 function startQuiz() {
   var startScreenContent = document.getElementById("startScreen");
@@ -39,7 +42,7 @@ function startQuiz() {
 
 function startTimer() {
   var timer = document.getElementById("timerDisplay");
-  var timeRemaining = 30;
+ 
   countDown = setInterval(function secondsLeft() {
     timeRemaining--;
     timer.textContent = "timer: " + timeRemaining;
@@ -71,9 +74,10 @@ function checkAnswer() {
   var answerSelected = this.value;
   console.log(answerSelected);
   if (answerSelected === questions[currentQuestionIndex].correct) {
-    alert("correct");
+    alert("Yay! Well done");
   } else {
-    alert("Incorrect");
+    alert("Oops not quite, your time will be reduced my 3 seconds");
+    timeRemaining -= 3
   }
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length) {
@@ -84,11 +88,36 @@ function checkAnswer() {
 }
 
 function endQuiz() {
+  console.log(timeRemaining);
+  var finalScore = timeRemaining; 
   clearInterval(countDown);
   var questionsArea = document.getElementById("questions");
   questionsArea.style.display = "none";
   var finalMessage = document.getElementById("thanksMessage");
-  finalMessage.textContent = "Thanks for taking part!";
+  finalMessage.textContent = "Thank you for your participation! Your final score is " + timeRemaining;
+  
+  //var initials = document.getElementById("initials");
+  //document.querySelector("initialsInput").focus();
+  //console.log(document.activeElement.tagName);
+    // => INPUT
+    //document.querySelector("initialsInput").getBoundingClientRect();
+    //console.log(document.activeElement.tagName);
+    // => BODY
+
+    //document.getElementById("initials").submit();
+
+  //}
+//window.localStorage.getItem("initials" + "timeRemaining")
+  //}
 }
 
 beginBtn.onclick = startQuiz;
+
+ // put score and name into local storage
+// need an inoput box to get the initials x
+// and a button to submit x
+// button takes the score and the initials 
+// puts them in local storage
+// then displays everything from local storage on the screen
+
+
