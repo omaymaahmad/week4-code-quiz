@@ -25,17 +25,28 @@ var questions = [
     correct: "collection of key value pairs",
   },
 ];
+
 var currentQuestionIndex = 0;
-
-
 var beginBtn = document.getElementById("begin");
+var countDown;
 
 function startQuiz() {
   var startScreenContent = document.getElementById("startScreen");
   startScreenContent.style.display = "none";
-  //start the timer
-
+  startTimer();
   showQuestions();
+}
+
+function startTimer() {
+  var timer = document.getElementById("timerDisplay");
+  var timeRemaining = 30;
+  countDown = setInterval(function secondsLeft() {
+    timeRemaining--;
+    timer.textContent = "timer: " + timeRemaining;
+    if (timeRemaining < 0) {
+      endQuiz();
+    }
+  }, 1000);
 }
 
 function showQuestions() {
@@ -70,35 +81,14 @@ function checkAnswer() {
   } else {
     showQuestions();
   }
-
-  //look at a way where we can use the 'this' keyword to check whats been clicked against the answer to the question at current index
-  //if correct do something
-  //if wrong do something
-  // increment the current index and call the showQuestions function again
-  //unless there are no questions left (can check the length of the array against the current index)....when we end the quiz by calling a function to end the quiz
-}
-
-// Count highscore
-function addPersonToList(event) {
-  event.preventDefault();
-  var name = nameEl.value;
-  var score = scoreEl.value;
-  var li = document.createElement("li");
-  li.id = peopleScore.length;
-  li.innerHTML = name + score + " <button>edit</button>";
-  peopleScore.push({ name: score });
-  peopleScoreListEl.append(li);
 }
 
 function endQuiz() {
-  var endScore = checkAnswer;
+  clearInterval(countDown);
   var questionsArea = document.getElementById("questions");
-  questionsArea.style.display = "none"; 
+  questionsArea.style.display = "none";
   var finalMessage = document.getElementById("thanksMessage");
-  finalMessage.textContent = "Thanks for taking part!"
-  //display score etc
+  finalMessage.textContent = "Thanks for taking part!";
 }
 
 beginBtn.onclick = startQuiz;
-
-// Bottom of the page initise the start of the code execution startQuiz();
