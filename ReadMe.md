@@ -1,4 +1,15 @@
 # 04 Web APIs: Code Quiz
+* see assests folder for screenshot of deployed quiz 
+* all questions were entered as an array 
+* variables were stated
+* funciton of a start screen created and the function timer was initiated to start after the begin button was selected
+* timer function included a countdown element 
+* the questions were then displayed on the next screen using another function
+* a check answer function was created to check the scores against the correct answer. Alerts were aded to inform the participant with feedback 
+* a 'punishment' aspect for incorrect answers was added (-3 seconds)
+* end of quiz funciton created to show the participant the quiz had ended and how they did. 
+* final message variable created to display gratitude for participation and present final score.
+* an attempt to create a input box and set it to the local storage was made. 
 
 ## Your Task
 
